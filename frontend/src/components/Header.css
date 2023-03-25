@@ -1,0 +1,48 @@
+.navbar {
+  background-color: #0095ff;
+  color: #000000;
+}
+
+.navbar-brand, .navbar-brand:hover,.navbar-brand::after {
+  font-family:  'lato', sans-serif;
+  font-weight: 700;
+  font-size: 40px;
+  color: #000000 !important;
+  margin-right: 80px;
+}
+
+.navbar-toggler,
+.collapsed,
+i {
+  color: #fff8ea;
+  border: #fff8ea !important;
+}
+
+.active {
+  background-color: #99ff00;
+  border-radius: 6px;
+  padding-left: 14px;
+}
+
+.active .nav-link {
+  color: #000000;
+}
+
+.nav-link {
+  color: #000000;
+  text-align: center;
+  font-size: 20px;
+}
+.nav-link:hover {
+  color: #004cff;
+}
+a {
+  text-decoration: none;
+}
+
+@media only screen and (max-width: 600px) {
+  .active {
+    border-radius: 0px;
+    padding-left: 0px;
+  }
+}

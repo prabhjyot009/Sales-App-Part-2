@@ -1,0 +1,64 @@
+.container {
+  padding: 50px 100px;
+}
+
+.register {
+  padding: 20px 100px;
+}
+
+.btn {
+  background-color: #006aff;
+  color: #fff8ea;
+}
+
+.btn:hover {
+  background-color: #974c4c;
+  color: #fff8ea;
+}
+
+input {
+  border: none !important;
+  border: 1px solid #00aeff !important;
+  outline: none;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+}
+
+h1 {
+  color: #000000;
+}
+
+h3 {
+  color: #fff8ea;
+  background-color: #009dff;
+  width: max-content;
+  margin: auto;
+  padding: 14px;
+  border-radius: 8px;
+}
+/* Top 5 Sales Table CSS */
+
+table {
+  border: 2px solid #000000 !important;
+  text-align: center;
+  box-shadow: 0 0 20px rgb(0, 198, 253);
+}
+table > thead {
+  border-bottom: 2px solid #009dff !important;
+  background-color: #009dff;
+
+  color: #000000 !important;
+
+}
+table > tbody > tr:hover{
+  background-color: #beb4a2;
+  
+} 
+@media only screen and (max-width: 600px) {
+  .container {
+    padding: 65px;
+  }
+  .top-sales {
+    padding: 20px;
+  }
+}
