@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+import Alerter from "sweetalert2";
 
 const Register = () => {
   const [credentials, setCredentials] = useState({
@@ -13,26 +12,33 @@ const Register = () => {
   const navigate = useNavigate();
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const response = await fetch("http://localhost:8000/signup", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        firstName: credentials.firstName,
-        lastName: credentials.lastName,
-        email: credentials.email,
-        password: credentials.password,
-      }),
+    const response = await fetch(
+      "https://sales-app-backend.onrender.com/signup",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          firstName: credentials.firstName,
+          lastName: credentials.lastName,
+          email: credentials.email,
+          password: credentials.password,
+        }),
+      }
+    );
+    Alerter.fire({
+      title: "Success!",
+      text: "User Registered Successfully",
+      icon: "success",
+      confirmButtonText: "Login",
     });
-    alert("User registered successfully!");
-    // toast("User registered successfully!");
-    navigate("/addsale");
+    navigate("/login");
 
     const json = await response.json();
     console.log(json);
     if (!json.success) {
-      toast("Enter valid credentials");
+      alert("Enter valid credentials");
     }
   };
 

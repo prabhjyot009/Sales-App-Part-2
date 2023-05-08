@@ -1,4 +1,3 @@
-import "./App.css";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import AddSale from "./pages/AddSale";
 import Header from "./components/Header";
@@ -15,7 +14,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Register />} />
           <Route exact path="/addsale" element={<AddSale />} />
-          <Route exact path="/top5Sales" element={<TopSales />} />
+          <Route path="/top-five" element={<TopSales />} />
           <Route exact path="/revenue" element={<Revenue />} />
           <Route exact path="/signup" element={<Register />} />
           <Route exact path="/login" element={<Login />} />

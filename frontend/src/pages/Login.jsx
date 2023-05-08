@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import Alerter from "sweetalert2";
 
 const Login = () => {
   const [credentials, setCredentials] = useState({
@@ -10,29 +11,42 @@ const Login = () => {
   let navigate = useNavigate();
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const response = await fetch("http://localhost:8000/login", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        email: credentials.email,
-        password: credentials.password,
-      }),
-    });
+    const response = await fetch(
+      "https://sales-app-backend.onrender.com/login",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          email: credentials.email,
+          password: credentials.password,
+        }),
+      }
+    );
     const json = await response.json();
     console.log(json);
     if (!json.success) {
-      alert("Enter Valid Credentials");
+      Alerter.fire({
+        title: "Failed!",
+        text: "Enter valid credentials!",
+        icon: "error",
+        confirmButtonText: "Try again",
+      });
     }
     if (json.success) {
       localStorage.setItem("userEmail", credentials.email);
 
       localStorage.setItem("authToken", json.authToken);
       // console.log(localStorage.getItem("authToken"));
-      alert("User logged in successfully!");
-      navigate("/addsale");
+      Alerter.fire({
+        title: "Success!",
+        text: "User Logged In Successfully",
+        icon: "success",
+        confirmButtonText: "Ok",
+      });
     }
+    navigate("/addsale");
   };
   const onChange = (event) => {
     setCredentials({ ...credentials, [event.target.name]: event.target.value });

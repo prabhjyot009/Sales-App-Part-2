@@ -1,14 +1,20 @@
 import React from "react";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import "./Header.css";
+import Alerter from "sweetalert2";
 
 const Header = () => {
   const navigate = useNavigate();
   const handleLogout = () => {
-    alert("Are you sure you want to logout?");
+    Alerter.fire({
+      title: "Success!",
+      text: "Are you sure you want to logout ?",
+      icon: "warning",
+      confirmButtonText: "Yes",
+    });
     localStorage.removeItem("authToken");
     localStorage.removeItem("userEmail");
-    console.log("clicked logout");
+    // console.log("clicked logout");
     navigate("/");
   };
   return (
@@ -44,11 +50,11 @@ const Header = () => {
                 <NavLink to="/addsale" className="nav-item">
                   <div className="nav-link me-3">Add Sales</div>
                 </NavLink>
-                <NavLink to="/top5Sales" className="nav-item">
+                <NavLink to="/top-five" className="nav-item">
                   <div className="nav-link me-3">Top 5 Sales</div>
                 </NavLink>
                 <NavLink to="/revenue" className="nav-item">
-                  <div className="nav-link me-3">Today's Total Revenue</div>
+                  <div className="nav-link me-3">Total Revenue</div>
                 </NavLink>
                 <NavLink
                   onClick={handleLogout}
