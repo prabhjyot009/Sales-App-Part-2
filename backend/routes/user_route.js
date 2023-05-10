@@ -16,12 +16,13 @@ router.post(
     }),
     body("email").isEmail(),
   ],
-
+  
   async (req, res) => {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
       return res.status(400).json({ errors: errors.array() });
     }
+    
     const salt = await bcrypt.genSalt(10);
     const securePassword = await bcrypt.hash(req.body.password, salt);
 
