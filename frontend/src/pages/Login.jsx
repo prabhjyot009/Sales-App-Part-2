@@ -26,6 +26,7 @@ const Login = () => {
     );
     const json = await response.json();
     console.log(json);
+
     if (!json.success) {
       Alerter.fire({
         title: "Failed!",
@@ -33,20 +34,29 @@ const Login = () => {
         icon: "error",
         confirmButtonText: "Try again",
       });
-    }
+     
+    } 
     if (json.success) {
       localStorage.setItem("userEmail", credentials.email);
 
       localStorage.setItem("authToken", json.authToken);
-      // console.log(localStorage.getItem("authToken"));
+       console.log(localStorage.getItem("authToken"));
       Alerter.fire({
         title: "Success!",
         text: "User Logged In Successfully",
         icon: "success",
         confirmButtonText: "Ok",
       });
+      navigate("/addsale");
+      
+    } else {
+      Alerter.fire({
+        title: "Failed!",
+        text: "Login failed",
+        icon: "error",
+        showConfirmButton: "OK",
+      });
     }
-    navigate("/addsale");
   };
   const onChange = (event) => {
     setCredentials({ ...credentials, [event.target.name]: event.target.value });
@@ -63,6 +73,7 @@ const Login = () => {
         </label>
         <input
           type="email"
+          placeholder="Enter Your Email"
           className="form-control py-2 fw-semibold"
           aria-describedby="emailHelp"
           name="email"
@@ -70,7 +81,7 @@ const Login = () => {
           onChange={onChange}
         />
         <div id="emailHelp" className="form-text">
-          We'll never share your email with anyone else.
+         We will never share your email.
         </div>
       </div>
       <div className="mb-3">
@@ -82,6 +93,7 @@ const Login = () => {
         </label>
         <input
           type="password"
+          placeholder="Atleast 5 Characters"
           className="form-control py-2 fw-semibold"
           name="password"
           value={credentials.password}

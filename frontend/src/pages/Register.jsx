@@ -32,13 +32,21 @@ const Register = () => {
       text: "User Registered Successfully",
       icon: "success",
       confirmButtonText: "Login",
+      
     });
-    navigate("/login");
+  
 
-    const json = await response.json();
-    console.log(json);
-    if (!json.success) {
-      alert("Enter valid credentials");
+     const json = await response.json();
+     console.log(json);
+    if (json.success) {
+     navigate("/login")
+    } else {
+      Alerter.fire({
+        title: "Registration failed!",
+        text: "Invalid Credentials",
+        icon: "error",
+        confirmButtonText: "Retry",
+      });
     }
   };
 
@@ -105,12 +113,12 @@ const Register = () => {
           htmlFor="exampleFormControlInput1"
           className="form-label fw-semibold fs-6"
         >
-          Password
+          Password 
         </label>
         <input
           type="password"
           className="form-control py-2 fw-semibold"
-          placeholder="Enter Password"
+          placeholder="Password Must be of Atleast 5 Characters"
           name="password"
           value={credentials.passwords}
           onChange={onChange}

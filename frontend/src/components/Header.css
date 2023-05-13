@@ -1,5 +1,5 @@
 .navbar {
-  background-color: #594545;
+  background-color: #455159;
   color: #fff8ea;
 }
 
@@ -20,7 +20,7 @@ i {
 }
 
 .active {
-  background-color: #9e7676;
+  background-color: #7e769e;
   border-radius: 6px;
   padding-left: 14px;
 }
