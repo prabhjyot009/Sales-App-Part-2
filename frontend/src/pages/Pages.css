@@ -7,30 +7,30 @@
 }
 
 .btn {
-  background-color: #815b5b;
+  background-color: #5b7181;
   color: #fff8ea;
 }
 
 .btn:hover {
-  background-color: #594545;
+  background-color: #4e4559;
   color: #fff8ea;
 }
 
 input {
   border: none !important;
-  border: 1px solid #594545 !important;
+  border: 1px solid #455159 !important;
   outline: none;
   border-radius: 0 !important;
   box-shadow: none !important;
 }
 
 h1 {
-  color: #594545;
+  color: #455954;
 }
 
 h3 {
   color: #fff8ea;
-  background-color: #815b5b;
+  background-color: #5b817e;
   width: max-content;
   margin: auto;
   padding: 14px;
@@ -39,11 +39,11 @@ h3 {
 /* Top 5 Sales Table CSS */
 
 table {
-  border: 2px solid #594545 !important;
+  border: 2px solid #455759 !important;
 }
 table > thead {
-  border-bottom: 2px solid #594545 !important;
-  background-color: #9E7676;
+  border-bottom: 2px solid #45594c !important;
+  background-color: #769e7c;
 
   color: #fff8ea !important;
 
